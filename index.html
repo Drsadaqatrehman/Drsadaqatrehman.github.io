@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic portfolio of Dr. Sadaqat ur Rehman — Artificial Intelligence, Deep Learning, Computer Vision, AI in Healthcare and Education." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Dr. Sadaqat ur Rehman | AI Scientist & Academic</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1728;
+      --panel: rgba(15, 29, 48, 0.78);
+      --panel-solid: #0f1d30;
+      --text: #edf5ff;
+      --muted: #9fb0c5;
+      --line: rgba(255,255,255,.09);
+      --accent: #69e3ff;
+      --accent-2: #8da2ff;
+      --accent-3: #7ff0c6;
+      --shadow: 0 24px 70px rgba(0,0,0,.28);
+      --radius: 24px;
+      --max: 1180px;
+      --nav-h: 74px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f8fc;
+      --bg-soft: #ffffff;
+      --panel: rgba(255,255,255,.82);
+      --panel-solid: #ffffff;
+      --text: #102038;
+      --muted: #607085;
+      --line: rgba(16,32,56,.10);
+      --accent: #007d9b;
+      --accent-2: #5369d8;
+      --accent-3: #008861;
+      --shadow: 0 24px 70px rgba(29,52,79,.11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    .skip-link { position: fixed; left: 14px; top: -60px; z-index: 300; padding: 10px 14px; border-radius: 10px; background: var(--accent); color: #06111f; font-weight: 800; }
+    .skip-link:focus { top: 12px; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(105,227,255,.14), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(141,162,255,.14), transparent 24%),
+        radial-gradient(circle at 70% 65%, rgba(127,240,198,.08), transparent 24%),
+        var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      z-index: 200;
+    }
+
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 760;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 10px 28px rgba(105,227,255,.18);
+      font-weight: 900;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      transition: .22s ease;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--line); }
+
+    .icon-btn, .menu-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--text);
+      background: var(--panel);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .menu-btn { display: none; }
+
+    .hero {
+      min-height: calc(92dvh - var(--nav-h));
+      display: grid;
+      align-items: center;
+      padding: 86px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 0 6px rgba(127,240,198,.10);
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      max-width: 900px;
+      font-size: clamp(52px, 7.2vw, 92px);
+      line-height: .97;
+      letter-spacing: -.065em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--accent), #d8f8ff 46%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-role {
+      font-size: clamp(19px, 2vw, 27px);
+      letter-spacing: -.025em;
+      font-weight: 690;
+      margin: 0 0 16px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 760;
+      font-size: 14px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+    .btn.primary { color: #06111f; border: 0; background: linear-gradient(135deg, var(--accent), var(--accent-3)); }
+    .btn.secondary { background: var(--panel); }
+
+    .hero-card {
+      position: relative;
+      min-height: 490px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--panel-solid) 88%, transparent), color-mix(in srgb, var(--bg-soft) 70%, transparent));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card::after {
+      content: "AI";
+      position: absolute;
+      right: -22px;
+      bottom: -55px;
+      font-size: 230px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.08em;
+      color: transparent;
+      -webkit-text-stroke: 1px color-mix(in srgb, var(--text) 8%, transparent);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 126px;
+      height: 126px;
+      border-radius: 32px;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: 850;
+      letter-spacing: -.05em;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2) 55%, var(--accent-3));
+      box-shadow: 0 22px 50px rgba(105,227,255,.16);
+    }
+
+    .hero-card h2 { margin: 24px 0 8px; font-size: 24px; letter-spacing: -.03em; }
+    .hero-card p { margin: 0; color: var(--muted); }
+    .mini-label { color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 44px 0 0;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 17px;
+      background: var(--panel);
+    }
+    .stat strong { display: block; font-size: 27px; letter-spacing: -.04em; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    section { padding: 92px 0; scroll-margin-top: calc(var(--nav-h) + 20px); }
+    .section-head { display: grid; grid-template-columns: .65fr 1.35fr; gap: 40px; margin-bottom: 34px; align-items: end; }
+    .section-kicker { color: var(--accent); font-size: 13px; font-weight: 850; text-transform: uppercase; letter-spacing: .14em; }
+    .section-title { margin: 7px 0 0; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.03; letter-spacing: -.045em; }
+    .section-intro { margin: 0; color: var(--muted); max-width: 700px; justify-self: end; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      box-shadow: 0 14px 42px rgba(0,0,0,.08);
+    }
+
+    .card:hover { border-color: color-mix(in srgb, var(--accent) 34%, var(--line)); }
+    .card h3 { margin: 6px 0 8px; font-size: 20px; letter-spacing: -.025em; }
+    .card p { color: var(--muted); margin: 0; }
+    .card small { color: var(--accent); font-weight: 800; letter-spacing: .04em; }
+
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .timeline { position: relative; margin-top: 18px; }
+    .timeline::before { content: ""; position: absolute; left: 23px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+    .timeline-item { position: relative; padding-left: 68px; margin: 0 0 28px; }
+    .timeline-dot {
+      position: absolute;
+      left: 14px;
+      top: 7px;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 5px solid var(--accent);
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+    .timeline-meta { color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: .03em; }
+    .timeline-item h3 { margin: 4px 0 3px; font-size: 20px; letter-spacing: -.025em; }
+    .timeline-item .org { color: var(--muted); margin-bottom: 7px; }
+    .timeline-item p { color: var(--muted); margin: 0; max-width: 900px; }
+
+    .education-card { display: flex; flex-direction: column; min-height: 210px; }
+    .education-card .degree { margin-top: auto; }
+
+    .pub-card { display: flex; flex-direction: column; min-height: 245px; }
+    .pub-card .journal { color: var(--accent-3); font-size: 12px; font-weight: 850; text-transform: uppercase; letter-spacing: .10em; }
+    .pub-card h3 { font-size: 18px; line-height: 1.35; margin-top: 12px; }
+    .pub-card .year { margin-top: auto; padding-top: 22px; color: var(--muted); font-weight: 700; }
+
+    .metric-strip {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 10%, var(--panel)), color-mix(in srgb, var(--accent-2) 8%, var(--panel)));
+      display: grid;
+      grid-template-columns: 1.1fr repeat(4, .72fr);
+      gap: 20px;
+      align-items: center;
+    }
+    .metric-strip h3 { margin: 0; font-size: 22px; letter-spacing: -.03em; }
+    .metric-strip p { margin: 4px 0 0; color: var(--muted); }
+    .metric strong { display: block; font-size: 26px; }
+    .metric span { color: var(--muted); font-size: 12px; }
+
+    .award { display: flex; gap: 16px; align-items: flex-start; }
+    .award-index {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-weight: 850;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    }
+
+    .contact-panel {
+      padding: 44px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 90% 15%, rgba(105,227,255,.16), transparent 28%),
+        radial-gradient(circle at 8% 100%, rgba(141,162,255,.14), transparent 25%),
+        var(--panel);
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .contact-panel h2 { margin: 0 0 12px; font-size: clamp(34px, 4vw, 54px); letter-spacing: -.045em; line-height: 1.02; }
+    .contact-panel p { color: var(--muted); max-width: 680px; }
+    .contact-actions { justify-content: flex-end; }
+
+    footer { padding: 28px 0 50px; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .section-head, .contact-panel { grid-template-columns: 1fr; }
+      .section-intro { justify-self: start; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .metric-strip { grid-template-columns: repeat(2, 1fr); }
+      .metric-strip > div:first-child { grid-column: 1 / -1; }
+      .contact-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: calc(var(--nav-h) - 2px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel-solid);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 14px; }
+      .menu-btn { display: grid; }
+      .nav-actions { display: flex; gap: 8px; }
+      .hero { padding-top: 58px; }
+      .hero-grid { gap: 34px; }
+      .hero-card { min-height: 380px; padding: 24px; }
+      .avatar { width: 100px; height: 100px; border-radius: 28px; }
+      section { padding: 70px 0; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .metric-strip { grid-template-columns: 1fr 1fr; }
+      .contact-panel { padding: 28px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: clamp(46px, 15vw, 66px); }
+      .stats, .metric-strip { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 14px; }
+      .stat strong { font-size: 23px; }
+      .actions .btn { width: 100%; }
+      .brand span:last-child { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .nav-wrap, .progress, .actions, .contact-actions { display: none !important; }
+      body { background: white; color: black; }
+      .card, .hero-card, .metric-strip, .contact-panel { background: white; box-shadow: none; border-color: #ddd; }
+      .hero { min-height: auto; }
+      section { padding: 32px 0; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="progress" id="progress"></div>
+
+  <header class="nav-wrap">
+    <nav class="container" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Go to homepage">
+        <span class="brand-mark">SR</span>
+        <span>Sadaqat ur Rehman</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9c0-.55-.05-1.08-.14-1.6A7 7 0 0 1 12 3Z"/>
+            <path d="M12 3v18" opacity=".45"/>
+          </svg>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div id="top"></div>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="eyebrow"><span class="status-dot"></span> Artificial Intelligence · Research · Higher Education</div>
+            <h1>Dr. Sadaqat<br><span class="gradient-text">ur Rehman</span></h1>
+            <p class="hero-role">AI Scientist, Academic & Research Leader</p>
+            <p class="hero-copy">
+              Researching artificial intelligence, machine learning, deep learning and computer vision, with applications spanning healthcare, education, industrial AI and intelligent systems. More than a decade of teaching and research across the UK, China, Switzerland and the USA.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#research">Explore research <span aria-hidden="true">→</span></a>
+              <a class="btn secondary" href="Sadaqat_Rehman_CV.pdf" target="_blank" rel="noopener">Download full CV</a>
+              <a class="btn secondary" href="mailto:s.rehman15@salford.ac.uk">Email me</a>
+            </div>
+
+            <div class="stats" aria-label="Research metrics">
+              <div class="stat"><strong data-counter="95">0</strong><span>Research papers+</span></div>
+              <div class="stat"><strong data-counter="3450">0</strong><span>Google citations+</span></div>
+              <div class="stat"><strong data-counter="31">0</strong><span>H-index</span></div>
+              <div class="stat"><strong>£150K+</strong><span>Research funding</span></div>
+            </div>
+          </div>
+
+          <aside class="hero-card reveal" aria-label="Current academic profile">
+            <div>
+              <div class="mini-label">Academic profile</div>
+              <div class="avatar" aria-label="Initials SR">SR</div>
+              <h2>Artificial Intelligence & Computer Vision</h2>
+              <p>Academic leadership, funded research, postgraduate supervision and applied AI collaboration.</p>
+            </div>
+            <div>
+              <small>Current appointments include</small>
+              <h2 style="font-size:18px; margin-bottom:4px;">University of Salford · London School of Innovation · Illinois Institute of Technology</h2>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">01 · Profile</div>
+            <h2 class="section-title">Research with academic and real-world impact.</h2>
+          </div>
+          <p class="section-intro">
+            My work sits at the intersection of AI research, higher education and applied innovation. I have taught and researched at institutions including the University of Salford, University of Aberdeen, Tsinghua University and ETH Zurich, and I have contributed to industrial AI work at Schlumberger.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <small>Research</small>
+            <h3>AI & intelligent systems</h3>
+            <p>Artificial intelligence, machine learning, deep learning, large vision/language models, computer vision, image processing and applied intelligent systems.</p>
+          </article>
+          <article class="card reveal">
+            <small>Applications</small>
+            <h3>Healthcare, education & industry</h3>
+            <p>AI-enabled healthcare, education, visual perception, industrial inspection, intelligent forecasting and responsible adoption of AI.</p>
+          </article>
+          <article class="card reveal">
+            <small>Academic leadership</small>
+            <h3>Teaching, supervision & programmes</h3>
+            <p>Programme leadership, curriculum design, research supervision, external examining, quality enhancement and international academic collaboration.</p>
+          </article>
+        </div>
+
+        <div class="tag-cloud reveal" style="margin-top:22px;">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Large Vision Models</span>
+          <span class="tag">Large Language Models</span>
+          <span class="tag">AI in Healthcare</span>
+          <span class="tag">AI in Education</span>
+          <span class="tag">Image Processing</span>
+          <span class="tag">Industrial AI</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">02 · Experience</div>
+            <h2 class="section-title">Academic and industry appointments.</h2>
+          </div>
+          <p class="section-intro">A career spanning research-intensive universities, teaching-focused roles, programme leadership and applied AI engineering.</p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2025 — Present</div>
+            <h3>Adjunct Professor in Computer Science</h3>
+            <div class="org">Illinois Institute of Technology, Illinois, USA</div>
+            <p>Teaching Data Structures and Algorithms and Operating Systems.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2024 — Present</div>
+            <h3>Adjunct Professor in Artificial Intelligence</h3>
+            <div class="org">London School of Innovation, London, UK</div>
+            <p>Teaching, research and project supervision in artificial intelligence.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2022 — Present</div>
+            <h3>Professor (Assistant) in Artificial Intelligence</h3>
+            <div class="org">University of Salford, Manchester, UK</div>
+            <p>Undergraduate and postgraduate teaching, research, curriculum design, funded-project development, student supervision and programme leadership.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2022</div>
+            <h3>Teaching Fellow</h3>
+            <div class="org">University of Aberdeen, Aberdeen, UK</div>
+            <p>Teaching across computer architecture, secure software design, computer vision and image processing.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2020 — 2021</div>
+            <h3>Assistant Professor</h3>
+            <div class="org">Namal Institute, Pakistan</div>
+            <p>Teaching, student supervision, curriculum design, laboratory development and academic administration.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2019 — 2020</div>
+            <h3>Artificial Intelligence Engineer</h3>
+            <div class="org">Schlumberger, Beijing Geoscience Center, China</div>
+            <p>Applied deep learning and machine learning to drilling dynamics computation engines and supported AI adoption for technical audiences.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2015 — 2019</div>
+            <h3>Research & Teaching Assistant</h3>
+            <div class="org">Tsinghua University, Beijing, China</div>
+            <p>Research, teaching, assessment and project supervision in AI, data science, computer vision, networking and computing systems.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2016 — 2017</div>
+            <h3>Visiting Researcher</h3>
+            <div class="org">Computer Vision Lab, ETH Zurich, Switzerland</div>
+            <p>Research and study in image analysis, computer vision and medical image processing.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2012 — 2015</div>
+            <h3>Lecturer</h3>
+            <div class="org">Sarhad University of Science and IT, Pakistan</div>
+            <p>Undergraduate teaching, curriculum development, laboratory setup, student assessment and academic event organisation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">03 · Education</div>
+            <h2 class="section-title">Academic foundation.</h2>
+          </div>
+          <p class="section-intro">Training in AI, computer vision, information and communication engineering, data science and computer engineering.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card education-card reveal">
+            <small>2023 · University of Salford</small>
+            <h3>FHEA — Fellowship of the Higher Education Academy</h3>
+            <p class="degree">UK-recognised professional fellowship in higher education teaching.</p>
+          </article>
+          <article class="card education-card reveal">
+            <small>2019 · Tsinghua University</small>
+            <h3>PhD, Information & Communication Engineering</h3>
+            <p class="degree">Deep Learning and Computer Vision. Thesis: key issues in deep learning models for visual pattern classification and retrieval.</p>
+          </article>
+          <article class="card education-card reveal">
+            <small>2017 · ETH Zurich</small>
+            <h3>Exchange Student, Computer Vision Lab</h3>
+            <p class="degree">Computer vision, image analysis, medical imaging and optimisation of deep learning models.</p>
+          </article>
+          <article class="card education-card reveal">
+            <small>2014 · Sarhad University of Science and IT</small>
+            <h3>MS, Electronics & Communication Engineering</h3>
+            <p class="degree">Data Science focus. Ranked first in the department and awarded the Gold Medal.</p>
+          </article>
+          <article class="card education-card reveal">
+            <small>2011 · University of Engineering and Technology, Peshawar</small>
+            <h3>BS, Computer Engineering</h3>
+            <p class="degree">Final-year research in encryption, cryptography and message authentication for wireless sensor networks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">04 · Funded Research</div>
+            <h2 class="section-title">Research translated into funded projects.</h2>
+          </div>
+          <p class="section-intro">Principal Investigator and Co-Investigator contributions across AI literacy, medical education, respiratory-health detection and digital innovation.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <small>PI · 2025–2027</small>
+            <h3>AI applications for medical education and training</h3>
+            <p>Northern Engineering and Robotics Innovation Centre (NERIC), UK.</p>
+          </article>
+          <article class="card reveal">
+            <small>PI · 2024–2026</small>
+            <h3>AI Literacy for All</h3>
+            <p>A national framework for responsible and inclusive AI education, supported by PureTech.</p>
+          </article>
+          <article class="card reveal">
+            <small>PI · 2021–2022</small>
+            <h3>Early-stage COVID-19 detection</h3>
+            <p>Deep-learning detection based on respiratory disorder and temperature, supported by PureTech.</p>
+          </article>
+          <article class="card reveal">
+            <small>Co-PI · 2022</small>
+            <h3>Centre for Digital Innovation</h3>
+            <p>University of Salford, UK — AI-focused supervision, consultancy and collaboration with SMEs.</p>
+          </article>
+        </div>
+
+        <div class="metric-strip reveal" style="margin-top:22px;">
+          <div>
+            <h3>Research profile at a glance</h3>
+            <p>Publication, citation and impact indicators from the current CV.</p>
+          </div>
+          <div class="metric"><strong>400+</strong><span>Cumulative impact factor</span></div>
+          <div class="metric"><strong>3,450</strong><span>Google citations</span></div>
+          <div class="metric"><strong>31</strong><span>Google H-index</span></div>
+          <div class="metric"><strong>67</strong><span>Google i10-index</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">05 · Publications</div>
+            <h2 class="section-title">Selected recent research.</h2>
+          </div>
+          <p class="section-intro">A small selection from a publication record spanning IEEE, Nature Portfolio, Elsevier, Springer and other peer-reviewed venues. The full list is available in the downloadable CV.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card pub-card reveal">
+            <div class="journal">IEEE T-ITS</div>
+            <h3>Enhancing Infrared Small Target Detection: A Saliency-Guided Multi-Task Learning Approach</h3>
+            <p>Infrared perception and multi-task deep learning.</p>
+            <div class="year">2025</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">IEEE TGRS</div>
+            <h3>Two-stage Domain Adaptation for Infrared Ship Target Segmentation</h3>
+            <p>Domain adaptation for robust infrared semantic segmentation.</p>
+            <div class="year">2024</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">IEEE T-IV</div>
+            <h3>Saliency Guided Siamese Attention Network for Infrared Ship Target Tracking</h3>
+            <p>Attention-driven target tracking in infrared imagery.</p>
+            <div class="year">2024</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Scientific Reports</div>
+            <h3>Deep learning-based forecasting of electricity consumption</h3>
+            <p>AI-based energy forecasting and predictive modelling.</p>
+            <div class="year">2024</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Expert Systems with Applications</div>
+            <h3>Improved attack detection in IoT and IIoT networks using attention mechanisms in convolutional neural networks</h3>
+            <p>Attention-based AI for cyber-physical network security.</p>
+            <div class="year">2025</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Neurocomputing</div>
+            <h3>Enhancing surveillance and early warning of infections and antimicrobial resistance using machine learning and deep learning</h3>
+            <p>Systematic review of AI-enabled health surveillance.</p>
+            <div class="year">2026</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Multimedia Systems</div>
+            <h3>DADANet: data-augmented domain adaptation with region-guided pseudo-label correction</h3>
+            <p>Infrared ship semantic segmentation.</p>
+            <div class="year">2026</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Signal, Image and Video Processing</div>
+            <h3>L-DC-DETR: A Lite Distance-Content Aware DETR for Gas Pipeline Defect Detection</h3>
+            <p>Lightweight transformer-based industrial defect detection.</p>
+            <div class="year">2026</div>
+          </article>
+          <article class="card pub-card reveal">
+            <div class="journal">Computer Networks</div>
+            <h3>A Novel Routing Optimization Strategy Based on Reinforcement Learning in Perception Layer Networks</h3>
+            <p>Reinforcement learning for network routing optimisation.</p>
+            <div class="year">2023</div>
+          </article>
+        </div>
+
+        <div class="actions reveal" style="margin-top:26px;">
+          <a class="btn primary" href="https://scholar.google.com/citations?user=FHHxWXMAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="Sadaqat_Rehman_CV.pdf" target="_blank" rel="noopener">Full publication list in CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">06 · Recognition</div>
+            <h2 class="section-title">Awards, service and leadership.</h2>
+          </div>
+          <p class="section-intro">Recognition includes a UK Global Talent endorsement, research ranking, academic awards, editorial work and programme leadership.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card award reveal">
+            <div class="award-index">01</div>
+            <div><small>UK</small><h3>Global Talent — Exceptional Promise in AI</h3><p>Endorsed by the Royal Academy of Engineering.</p></div>
+          </article>
+          <article class="card award reveal">
+            <div class="award-index">02</div>
+            <div><small>2025</small><h3>World Top 5% Scientist</h3><p>Listed in the SCI Ranking 2025.</p></div>
+          </article>
+          <article class="card award reveal">
+            <div class="award-index">03</div>
+            <div><small>2024</small><h3>Best Early Career Research Award nomination</h3><p>University of Salford, UK.</p></div>
+          </article>
+          <article class="card award reveal">
+            <div class="award-index">04</div>
+            <div><small>2014</small><h3>Gold Medal — MS degree</h3><p>First position / highest distinction at Sarhad University.</p></div>
+          </article>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:22px;">
+          <article class="card reveal"><small>Editorial service</small><h3>Scientific Reports</h3><p>Associate Editor; also editorial and reviewing activity across major AI and computing journals.</p></article>
+          <article class="card reveal"><small>Academic leadership</small><h3>Programme & quality roles</h3><p>Programme leadership, external examining, quality enhancement, international partnership communication and curriculum development.</p></article>
+          <article class="card reveal"><small>Peer review</small><h3>150+ reviewed papers</h3><p>Review activity for IEEE, ACM, Elsevier, Springer, Nature Portfolio and other venues, plus conference programme committees.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="supervision">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">07 · Supervision & Skills</div>
+            <h2 class="section-title">Developing researchers and building systems.</h2>
+          </div>
+          <p class="section-intro">Supervision spans undergraduate, MSc, PhD and postdoctoral work, supported by a technical stack covering AI development, numerical computing and engineering simulation.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <small>Supervision</small>
+            <h3>Research mentoring</h3>
+            <p>Supervised 28 MSc and 40 undergraduate students across UK and international institutions, with current supervision including PhD and postdoctoral researchers.</p>
+          </article>
+          <article class="card reveal">
+            <small>Programming</small>
+            <h3>Python · Java · MATLAB · C/C++</h3>
+            <p>Additional experience with MATLAB Simulink, LaTeX, Proteus, PSpice, Multisim, FPGA platforms, microcontrollers and microprocessors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <div class="section-kicker">08 · Contact</div>
+            <h2>Research collaboration, supervision and academic projects.</h2>
+            <p>For research collaboration, academic supervision, AI consultancy or invited academic activity, email me directly or review the complete academic CV.</p>
+          </div>
+          <div class="actions contact-actions">
+            <a class="btn primary" href="mailto:s.rehman15@salford.ac.uk">s.rehman15@salford.ac.uk</a>
+            <a class="btn secondary" href="Sadaqat_Rehman_CV.pdf" target="_blank" rel="noopener">Open CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Dr. Sadaqat ur Rehman</span>
+      <span>Academic portfolio · Artificial Intelligence · Computer Vision</span>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    const preferredLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    applyTheme(storedTheme || (preferredLight ? 'light' : 'dark'));
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.counter);
+        const duration = 1100;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const value = Math.round(target * eased);
+          el.textContent = value.toLocaleString() + (target >= 95 ? '+' : '');
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.65 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    const progress = document.getElementById('progress');
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progress.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
